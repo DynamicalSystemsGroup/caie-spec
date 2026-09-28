@@ -1,5 +1,5 @@
 [project]
-name = "og-caie-spec"
+name = "caie-spec"
 version = "0.1.0"
 description = "Contextual AI Evaluation (CAIE) as an executable specification"
 authors = [{ name = "Michael Zargham" }, { name = "Julie Hollek" }]  # co-authors

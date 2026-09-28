@@ -1,7 +1,7 @@
-# og-caie-spec
+# caie-spec
 
 **Contextual AI Evaluation (CAIE) as an executable specification.** Site:
-<https://dynamicalsystemsgroup.github.io/og-caie-spec/>
+<https://dynamicalsystemsgroup.github.io/caie-spec/>
 
 The process Humane Intelligence and Dynamical Systems Group use to evaluate a
 deployed AI system against the needs of a specific domain, written down as:
@@ -18,9 +18,9 @@ deployed AI system against the needs of a specific domain, written down as:
   that must fail, each the record with one change;
 - a **rulings register** holding every interpretive choice verbatim.
 
-## Status (2026-09-07)
+## Status (2026-09-28)
 
-- **Glossary: ratified.** 69 terms, 3 coined (DSO, EPO, CAIE),
+- **Glossary: ratified.** 68 terms, 3 coined (DSO, EPO, CAIE),
   settled through 52 rulings (R-01 to R-52) recorded verbatim in
   `rulings/adjudications.ttl`. 94 quotes are machine-located in
   content-hashed snapshots or, where the source is held locally, in its
@@ -124,6 +124,8 @@ co-authored by Michael Zargham (DSG) and Julie Hollek (HI). Cite it as such;
 "Cite this repository").
 
 ## Run the gate
+
+Prerequisites: Python 3.12+, Node.js 20+, and `uv` (via `pip install uv`).
 
 ```bash
 uv sync && bash checks/run-checks.sh

@@ -5,10 +5,10 @@ message: >-
 title: "CAIE: Contextual AI Evaluation as an executable specification"
 type: software
 version: 0.3.0
-date-released: 2026-09-08
+date-released: 2026-09-28
 license: CC-BY-SA-4.0
-repository-code: https://github.com/DynamicalSystemsGroup/og-caie-spec
-url: https://dynamicalsystemsgroup.github.io/og-caie-spec/
+repository-code: https://github.com/DynamicalSystemsGroup/caie-spec
+url: https://dynamicalsystemsgroup.github.io/caie-spec/
 authors:
   - family-names: Zargham
     given-names: Michael
