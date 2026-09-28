@@ -1,6 +1,6 @@
 [project]
 name = "caie-spec"
-version = "0.1.0"
+version = "0.3.0"
 description = "Contextual AI Evaluation (CAIE) as an executable specification"
 authors = [{ name = "Michael Zargham" }, { name = "Julie Hollek" }]  # co-authors
 license = { text = "CC-BY-SA-4.0" }
