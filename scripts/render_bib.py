@@ -41,7 +41,7 @@ SRC = Namespace("https://w3id.org/og-caie/sources#")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 OUT = ROOT / "generated"
-GRAPH_FILES = ("vocabulary/og-caie.ttl", "vocabulary/epo.ttl", "vocabulary/crosswalk.ttl", "sources/sources.ttl", "model/trace.ttl")
+GRAPH_FILES = ("vocabulary/caie.ttl", "vocabulary/epo.ttl", "vocabulary/crosswalk.ttl", "sources/sources.ttl", "model/trace.ttl")
 PAGES = {"index": ROOT / "index.md", "glossary": ROOT / "docs" / "glossary.md", "contracting": ROOT / "docs" / "contracting.md",
          "evaluation": ROOT / "docs" / "evaluation.md", "model": ROOT / "docs" / "model.md",
          "guarantees": ROOT / "docs" / "guarantees.md", "conclusion": ROOT / "docs" / "conclusion.md"}

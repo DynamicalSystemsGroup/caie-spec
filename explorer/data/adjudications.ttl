@@ -1179,3 +1179,25 @@ Z (process): "okay you have a ton of work queued up now. my preference is that y
     prov:wasAttributedTo rul:Z ;
     prov:generatedAtTime "2026-09-07"^^xsd:date .
 
+rul:simplification-2026-09-28 a prov:Activity ;
+    rdfs:label "terminology simplification, 2026-09-28" .
+
+rul:C-58 a ogc:Concern ;
+    rdfs:label "OG-CAIE as a coined term alongside CAIE creates unnecessary complexity" ;
+    ogc:problem """The glossary coins both CAIE (the class of evaluation) and OG-CAIE (CAIE performed with the EPO and DSO method). The specification's sole subject is the method; the class distinction is not load-bearing for any rule, shape, or citation. Two coined terms at the same level, one narrower than the other, adds complexity without adding precision.""" ;
+    ogc:severity "M" ;
+    ogc:status "ruled" ;
+    ogc:surfacedOn "2026-09-28"^^xsd:date ;
+    ogc:surfacedHow "Z, reviewing the coinage structure as part of a broader simplification and hardening pass" ;
+    ogc:concernsTerm term:og-caie ;
+    prov:wasGeneratedBy rul:simplification-2026-09-28 .
+
+rul:R-52 a ogc:Ruling ;
+    ogc:order 52 ;
+    ogc:resolves rul:C-58 ;
+    ogc:rulingText """OG-CAIE is retired as a coined term. Coinage is exactly three: Domain-Specific Ontology (DSO), Evaluation Process Ontology (EPO), and Contextual AI Evaluation (CAIE). CAIE is the evaluation of a deployed AI system against the needs of one domain, carried out with the method this specification sets out: the Evaluation Process Ontology, the same six steps for every domain inside a contracting lifecycle, applied with a Domain-Specific Ontology supplied or approved by the domain's experts, leaving a record anyone can check for conformance, traceability and coverage. All prior rulings that establish or reference OG-CAIE as a coined term are superseded in this respect by this ruling. The CAIE term absorbs the OG-CAIE definition; the OG-CAIE concept is removed from the glossary.""" ;
+    ogc:verbatim """we're dropping the prefix "OG". This work will simply be referred to as "ontology-based" to simplify it and that will be prose descriptor. i will refer to what we're doing as Contextual AI Evaluation (CAIE). this is part of a broader effort to simplify clarify and harden the content.""" ;
+    ogc:changeNote "term:og-caie removed from vocabulary/caie.ttl; term:contextual-ai-evaluation definition updated to absorb OG-CAIE's definition; coinage count drops from four to three; gate check updated; all prose references to OG-CAIE replaced with CAIE." ;
+    prov:wasAttributedTo rul:Z ;
+    prov:generatedAtTime "2026-09-28"^^xsd:date .
+

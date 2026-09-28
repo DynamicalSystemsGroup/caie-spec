@@ -3,7 +3,7 @@
 the registry in ogc/views.py, each captioned with the perspective it
 encodes, ruling R-38), the wiring tables, the SCI tables, the crosswalk and
 the receipts. Everything is read from the canonical model graph
-(model/og-caie.model.ttl, ruling R-22) and model/trace.ttl, never
+(model/caie.model.ttl, ruling R-22) and model/trace.ttl, never
 hand-drawn, so the figures cannot drift from the model. Deterministic:
 same graph, same bytes."""
 import json
@@ -18,9 +18,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from prune_model import OGM, SYS  # noqa: E402
 from ogc import views  # noqa: E402
 
-GRAPH = ROOT / "model" / "og-caie.model.ttl"
+GRAPH = ROOT / "model" / "caie.model.ttl"
 MANIFEST = ROOT / "model" / "model_manifest.json"
-MODEL = ROOT / "model" / "og-caie.sysml"
+MODEL = ROOT / "model" / "caie.sysml"
 SYSML = ROOT / "toolchain" / "bin" / "sysml"
 OUT = ROOT / "generated"
 OGC = Namespace("https://w3id.org/og-caie/")
@@ -103,7 +103,7 @@ def render_sci_chapter(chapter: str) -> str:
 
 def trace_graph() -> Graph:
     g = Graph()
-    for f in ("model/trace.ttl", "vocabulary/og-caie.ttl", "sources/sources.ttl", "rulings/adjudications.ttl"):
+    for f in ("model/trace.ttl", "vocabulary/caie.ttl", "sources/sources.ttl", "rulings/adjudications.ttl"):
         g.parse(ROOT / f)
     return g
 
@@ -137,9 +137,9 @@ def render_trace() -> str:
 
 
 def receipt_validate() -> str:
-    r = subprocess.run([str(SYSML), "model/og-caie.sysml", "-validate", "-strict"], cwd=ROOT, capture_output=True, text=True)
+    r = subprocess.run([str(SYSML), "model/caie.sysml", "-validate", "-strict"], cwd=ROOT, capture_output=True, text=True)
     body = "\n".join(l for l in (r.stdout + r.stderr).splitlines() if l.strip())
-    return f"### Strict validation of the authoring view\n\n```text\n$ sysml model/og-caie.sysml -validate -strict\n{body}\n(exit {r.returncode})\n```\n"
+    return f"### Strict validation of the authoring view\n\n```text\n$ sysml model/caie.sysml -validate -strict\n{body}\n(exit {r.returncode})\n```\n"
 
 
 def receipt_graph() -> str:

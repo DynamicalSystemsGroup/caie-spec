@@ -1,5 +1,5 @@
-package OGCAIE {
-    doc /* Ontology-Grounded Contextual AI Evaluation (OG-CAIE) as an
+package CAIE {
+    doc /* Contextual AI Evaluation (CAIE) as an
        executable specification. Scope: Concept Definition plus System
        Requirements Definition (SEBoK v2.14, ISO/IEC/IEEE 15288:2023),
        including the assessment of interactions across interfaces. No
@@ -9,7 +9,7 @@ package OGCAIE {
        items that cross seams, the ports and interfaces, the six-step contracting lifecycle and the six-step
        Evaluation Process Ontology as an action def, and one assemblage
        that wires them. It is the authoring view. The canonical structure
-       is its pruned RDF rendering, model/og-caie.model.ttl, produced by
+       is its pruned RDF rendering, model/caie.model.ttl, produced by
        the pinned OpenSysML converter (designed for Flexo MMS) and checked
        by SHACL wiring shapes (shapes/model.shapes.ttl, M1 to M5). Value
        and provenance rules live in shapes over the evaluation record
@@ -17,9 +17,9 @@ package OGCAIE {
        SCI-13 and the shapes that check each are in model/trace.ttl.
 
        Vocabulary: terms are used, not owned. Canonical definitions are
-       cited in vocabulary/og-caie.ttl in this precedence: ISO 9000:2026,
+       cited in vocabulary/caie.ttl in this precedence: ISO 9000:2026,
        SEVOCAB (IEEE CS), NIST AI 700-2, then W3C/OMG for binding only.
-       Coinage is exactly four: DSO, EPO, CAIE, OG-CAIE. Rulings are recorded
+       Coinage is exactly three: DSO, EPO, CAIE. Rulings are recorded
        verbatim in rulings/adjudications.ttl. */
 
     // ------------------------------------------------------------
@@ -124,7 +124,7 @@ package OGCAIE {
     }
     item def ServiceAgreement {
         doc /* The contract (ISO 9000:2026 3.3.13) between the sponsor
-           organization and the testing organization to perform OG-CAIE
+           organization and the testing organization to perform CAIE
            as a service, signed by the sponsor's signatory and by the testing
            organization's authorized representative, each acting on behalf
            of their organization (rulings R-21, R-23, R-50). It accepts the
@@ -741,7 +741,7 @@ package OGCAIE {
         end sponsor : SponsorOrganization;
         end population : AffectedPopulation;
     }
-    part def OgCaieEvaluation {
+    part def CaieEvaluation {
         doc /* Four parties wired along typed seams, performing the
            contracting lifecycle, whose fulfil step is the EPO (R-33). */
 
@@ -807,7 +807,7 @@ package OGCAIE {
     // ------------------------------------------------------------
 
     package Examples {
-        part def MeaslesEvaluation :> OgCaieEvaluation {
+        part def MeaslesEvaluation :> CaieEvaluation {
             doc /* A public-health chatbot during a measles outbreak: a
                county public-health office sponsors the evaluation and its
                health officer signs, the chatbot's vendor provides the test

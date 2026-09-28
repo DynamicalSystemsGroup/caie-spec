@@ -1,4 +1,4 @@
-# OG-CAIE as an executable specification
+# CAIE as an executable specification
 
 ```{figure} assets/hi-dsg-collaboration.png
 :width: 420px
@@ -8,15 +8,14 @@ A collaboration between Humane Intelligence and Dynamical Systems Group.
 ```
 
 Contextual AI Evaluation (CAIE) is the {term}`evaluation` of a deployed AI
-system against the needs of one domain, judged by people who know that
-domain. OG-CAIE is CAIE performed with the method this site sets out: an
-{term}`Evaluation Process Ontology` (EPO), the same six steps for every
-domain, performed inside a contracting lifecycle drawn from the engineering
-standards, and a {term}`Domain-Specific Ontology` (DSO), the vocabulary of
-one domain supplied or approved by its experts. The method is stated here
-in a form a machine can check and a person can read, and it is walked
-through on one synthetic case, a county public-health chatbot asked about
-measles during an outbreak.
+system against the needs of one domain, carried out with the method this
+site sets out: an {term}`Evaluation Process Ontology` (EPO), the same six
+steps for every domain, performed inside a contracting lifecycle drawn from
+the engineering standards, and a {term}`Domain-Specific Ontology` (DSO), the
+vocabulary of one domain supplied or approved by its experts. The method is
+stated here in a form a machine can check and a person can read, and it is
+walked through on one synthetic case, a county public-health chatbot asked
+about measles during an outbreak.
 
 This site is a collaboration between Dynamical Systems Group and Humane
 Intelligence, co-authored by Michael Zargham and Julie Hollek.

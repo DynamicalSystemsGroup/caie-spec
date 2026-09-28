@@ -5,7 +5,7 @@
 
 # Z's block-by-block and wire-by-wire validation of the model (concern C-30,
 # ruling R-48, sheet 07-09). One row per validated part kind or wire, named
-# as in model/og-caie.model.ttl; scripts/render.py renders sheet 05 from the
+# as in model/caie.model.ttl; scripts/render.py renders sheet 05 from the
 # model graph and reads the ticks here, so regeneration never loses them.
 # A validated name that no longer exists in the model is reported by the
 # tests as stale.

@@ -1,4 +1,4 @@
-"""The library: every question the OG-CAIE vocabulary answers, as a function
+"""The library: every question the CAIE vocabulary answers, as a function
 returning plain, sorted data. The CLI renders these."""
 from __future__ import annotations
 

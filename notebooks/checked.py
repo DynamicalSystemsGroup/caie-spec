@@ -45,17 +45,17 @@ def record() -> Graph:
     one default graph, since the shapes derive an item's step through the
     model graph and anchor every global rule on the record (sheets 10-31,
     10-33)."""
-    return load("vocabulary/epo.ttl", "model/og-caie.model.ttl", "track/measles-evaluation.ttl")
+    return load("vocabulary/epo.ttl", "model/caie.model.ttl", "track/measles-evaluation.ttl")
 
 
 def counterexample(name: str) -> Graph:
     """One RDF counterexample from counterexamples/ (the record with one change), with the EPO vocabulary and the model graph."""
-    return load("vocabulary/epo.ttl", "model/og-caie.model.ttl", f"counterexamples/{name}")
+    return load("vocabulary/epo.ttl", "model/caie.model.ttl", f"counterexamples/{name}")
 
 
 def model_graph() -> Graph:
-    """The canonical model graph, the pruned RDF rendering of model/og-caie.sysml (R-22)."""
-    return load("model/og-caie.model.ttl")
+    """The canonical model graph, the pruned RDF rendering of model/caie.sysml (R-22)."""
+    return load("model/caie.model.ttl")
 
 
 def toolchain() -> Path:

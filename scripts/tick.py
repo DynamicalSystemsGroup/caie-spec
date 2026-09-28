@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VOCAB = ROOT / "vocabulary" / "og-caie.ttl"
+VOCAB = ROOT / "vocabulary" / "caie.ttl"
 
 
 def main(argv):

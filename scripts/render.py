@@ -49,7 +49,7 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 def _render_glossary_bare() -> str:
     g = Graph()
-    for f in ("vocabulary/og-caie.ttl", "sources/sources.ttl"):
+    for f in ("vocabulary/caie.ttl", "sources/sources.ttl"):
         g.parse(ROOT / f)
     order = {"adopted": 0, "refined": 1, "coined": 2}
     terms = sorted(g.subjects(RDF.type, SKOS.Concept),
@@ -88,7 +88,7 @@ def render_sources() -> str:
 
 
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-XW_FILES = ("vocabulary/crosswalk.ttl", "vocabulary/og-caie.ttl", "vocabulary/epo.ttl", "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl", "sources/sources.ttl")
+XW_FILES = ("vocabulary/crosswalk.ttl", "vocabulary/caie.ttl", "vocabulary/epo.ttl", "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl", "sources/sources.ttl")
 PROSE_FOR_TERMS = ["index.md", "docs/*.md", "generated/popper.md", "generated/popper-back.md"]
 TERM_ROLE = re.compile(r"\{term\}`([^`]+)`")
 
@@ -158,7 +158,7 @@ def referenced_terms(g):
 
 def _render_key_terms_bare() -> str:
     g = Graph()
-    for f in ("vocabulary/og-caie.ttl", "sources/sources.ttl"):
+    for f in ("vocabulary/caie.ttl", "sources/sources.ttl"):
         g.parse(ROOT / f)
     found, unresolved = referenced_terms(g)
     if unresolved:
@@ -198,7 +198,7 @@ def record_graph() -> Graph:
     sys.path.insert(0, str(ROOT))
     from ogc.graph import infer_steps
     g = Graph()
-    for f in ("vocabulary/epo.ttl", "model/og-caie.model.ttl", RECORD_FILE):
+    for f in ("vocabulary/epo.ttl", "model/caie.model.ttl", RECORD_FILE):
         g.parse(ROOT / f)
     infer_steps(g)
     return g
@@ -294,7 +294,7 @@ def render_executor() -> str:
     import sys
     sys.path.insert(0, str(ROOT))
     from ogc import executor
-    model = Graph(); model.parse(ROOT / "model" / "og-caie.model.ttl")
+    model = Graph(); model.parse(ROOT / "model" / "caie.model.ttl")
     shapes = Graph(); shapes.parse(ROOT / "shapes" / "epo.shapes.ttl")
     epo = Graph(); epo.parse(ROOT / "vocabulary" / "epo.ttl")
     d = executor.demonstrate(model, shapes, epo)
@@ -348,7 +348,7 @@ def render_quote_status() -> str:
     cite-only citations counted the way `ogc verify --all --status cite-only` counts them (drift pass 4,
     professor M11): every canonical or seeAlso citation of a term or a step that carries no quote."""
     g = Graph()
-    for f in ("vocabulary/og-caie.ttl", "vocabulary/epo.ttl", "sources/sources.ttl", "vocabulary/crosswalk.ttl"):  # the bridge's authors quotes count too (sheet 10)
+    for f in ("vocabulary/caie.ttl", "vocabulary/epo.ttl", "sources/sources.ttl", "vocabulary/crosswalk.ttl"):  # the bridge's authors quotes count too (sheet 10)
         g.parse(ROOT / f)
     counts = {}
     for st in g.objects(None, OGC.quoteStatus):
@@ -419,14 +419,14 @@ def render_signoff_sheet() -> str:
     import sys
     sys.path.insert(0, str(ROOT / "scripts"))
     from prune_model import OGM, SYS
-    g = Graph(); g.parse(ROOT / "model" / "og-caie.model.ttl")
+    g = Graph(); g.parse(ROOT / "model" / "caie.model.ttl")
     def nm(n): return str(g.value(n, SYS.declaredName))
     v = Graph(); v.parse(ROOT / "rulings" / "validated.ttl")
     ticks = {str(v.value(x, OGC.validates)): str(v.value(x, OGC.validatedOn)) for x in v.subjects(RDF.type, OGC.Validation)}
     def tick(name): return f"[x] {ticks[name]}" if name in ticks else "[ ]"
     defs = sorted((d for d in g.subjects(RDF.type, SYS.PartDefinition) if any(True for _ in g.subjects(SYS.owner, d))), key=nm)
     lines = ["# Rulings sheet 05: the blocks and the wires (concern C-30)", "",
-             "Generated from `model/og-caie.model.ttl` by `scripts/render.py`; do not edit the rows by hand, tick them. One row per kind of part (its inputs and outputs) and one per wire (output port on a part to input port on a part). Ticks come from rulings/validated.ttl (Z's walkthrough, R-48 sheet 07-09), so regeneration keeps them; add a concern for anything wrong.", "",
+             "Generated from `model/caie.model.ttl` by `scripts/render.py`; do not edit the rows by hand, tick them. One row per kind of part (its inputs and outputs) and one per wire (output port on a part to input port on a part). Ticks come from rulings/validated.ttl (Z's walkthrough, R-48 sheet 07-09), so regeneration keeps them; add a concern for anything wrong.", "",
              "## Blocks", "", "| # | Part kind | Inputs | Outputs | Validated |", "|---|---|---|---|---|"]
     i = 0
     for d in defs:
@@ -495,23 +495,23 @@ def main_all() -> int:
     (OUT / "more-contracting.md").write_text(render_more("contracting",
         ["steps-contracting.md", "wiring-contracting.md", "sci-contracting.md", "record-contracting.md"],  # the wiring table is not on the page (drift pass 4, contracting officer 15): `ogc view` and the files carry it
         ["ogc view contracting", "ogc views", "ogc steps", "ogc sci SCI-10", "ogc term mission", "ogc term customer", "ogc term provider", "ogc term contract", "ogc verify iso-iec-17000-2020", "ogc sparql"],
-        ["model/og-caie.sysml", "model/og-caie.model.ttl", "vocabulary/epo.ttl", "shapes/epo.shapes.ttl (S0, S9)", "shapes/model.shapes.ttl (M1, M5)", "ogc/views.py", RECORD_FILE]))
+        ["model/caie.sysml", "model/caie.model.ttl", "vocabulary/epo.ttl", "shapes/epo.shapes.ttl (S0, S9)", "shapes/model.shapes.ttl (M1, M5)", "ogc/views.py", RECORD_FILE]))
     (OUT / "layers-walkthrough.md").write_text(render_layers_walkthrough())
     (OUT / "quote-status.md").write_text(render_quote_status())
     (OUT / "criteria.md").write_text(render_criteria())
     (OUT / "more-evaluation.md").write_text(render_more("evaluation",
         ["steps-evaluation.md", "wiring-evaluation.md", "sci-evaluation.md", "record-evaluation.md"],  # the same for the evaluation chapter
         ["ogc record", "ogc record attestation-1", "ogc view evaluation", "ogc steps", "ogc sci SCI-06", "ogc term evidence", "ogc term determination", "ogc term attestation", "ogc term trajectory", "ogc rulings --term evidence", "ogc sparql"],
-        ["model/og-caie.sysml", "model/og-caie.model.ttl", "vocabulary/epo.ttl", "shapes/epo.shapes.ttl (S1 to S8)", "shapes/model.shapes.ttl (M2 to M5)", RECORD_FILE, "counterexamples/", "scripts/render_counterexamples.py", "queries/coverage.rq", "queries/traceback.rq"]))
+        ["model/caie.sysml", "model/caie.model.ttl", "vocabulary/epo.ttl", "shapes/epo.shapes.ttl (S1 to S8)", "shapes/model.shapes.ttl (M2 to M5)", RECORD_FILE, "counterexamples/", "scripts/render_counterexamples.py", "queries/coverage.rq", "queries/traceback.rq"]))
     (OUT / "more-model.md").write_text(render_more("model",
         ["nesting.md", "layers-walkthrough.md", "receipts.md"],
         ["ogc view nesting", "ogc view assemblage", "ogc steps", "ogc sci SCI-11", "ogc sparql --model"],
-        ["model/og-caie.sysml", "model/og-caie.model.ttl", "model/model_manifest.json", "model/sysml_term_map.csv", "scripts/prune_model.py", "shapes/model.shapes.ttl (M4)", "shapes/epo.shapes.ttl (S0-Layers)"]))
+        ["model/caie.sysml", "model/caie.model.ttl", "model/model_manifest.json", "model/sysml_term_map.csv", "scripts/prune_model.py", "shapes/model.shapes.ttl (M4)", "shapes/epo.shapes.ttl (S0-Layers)"]))
     (OUT / "executor.md").write_text(render_executor())
     (OUT / "more-guarantees.md").write_text(render_more("guarantees",
         ["sci-guarantees.md", "executor.md"],
         ["ogc execute", "ogc execute --planned 3", "ogc execute --mutate skip-access", "ogc sci SCI-11", "ogc term \"test coverage\"", "ogc term \"requirements traceability\"", "ogc sparql"],
-        ["ogc/executor.py", "queries/coverage.rq", "queries/traceback.rq", "shapes/epo.shapes.ttl", "model/og-caie.model.ttl", "tests/test_executor.py"]))
+        ["ogc/executor.py", "queries/coverage.rq", "queries/traceback.rq", "shapes/epo.shapes.ttl", "model/caie.model.ttl", "tests/test_executor.py"]))
     (ROOT / "rulings" / "sheets" / "05-blocks-and-wires.md").write_text(render_signoff_sheet())
     return 0
 
@@ -563,7 +563,7 @@ def render_record() -> str:
     ok, results, _ = validate(g, shacl_graph=shapes, advanced=True)
     out.append(f"| `{RECORD_FILE}` | {ok} | | |")
     for cx in sorted((ROOT / "counterexamples").glob("*.ttl")):
-        d = Graph().parse(ROOT / "vocabulary" / "epo.ttl"); d.parse(ROOT / "model" / "og-caie.model.ttl"); d.parse(cx)
+        d = Graph().parse(ROOT / "vocabulary" / "epo.ttl"); d.parse(ROOT / "model" / "caie.model.ttl"); d.parse(cx)
         ok, results, _ = validate(d, shacl_graph=shapes, advanced=True)
         shapes_hit = sorted({str(next(shapes.subjects(SH.property, s), s) if not str(s).startswith(str(OGC)) else s).rsplit("/", 1)[-1]
                              for s in results.objects(None, SH.sourceShape)})  # a property shape named by the node shape that owns it

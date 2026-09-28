@@ -9,7 +9,7 @@
 # flows and relations, so that the shapes and the views read plain edges.
 
 <https://w3id.org/og-caie/model> a owl:Ontology ;
-    rdfs:label "the derived ends of the OG-CAIE model graph" ;
+    rdfs:label "the derived ends of the CAIE model graph" ;
     owl:versionInfo "0.3.0 in preparation; the git tag is the version" ;
     rdfs:comment "Predicates added by the pruner over the OpenSysML vocabulary; the term map model/sysml_term_map.csv says which SysML classes the graph keeps." .
 

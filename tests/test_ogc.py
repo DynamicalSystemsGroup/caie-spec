@@ -69,7 +69,7 @@ def test_exit_codes():
 def test_every_label_resolves_to_exactly_one_term():
     sys.path.insert(0, str(ROOT))
     from ogc import api
-    g = load("vocabulary/og-caie.ttl")
+    g = load("vocabulary/caie.ttl")
     assert api.ambiguous_labels(g) == []
     for t in g.subjects(RDF.type, __import__("rdflib").URIRef(SKOS + "Concept")):
         for l in [g.value(t, __import__("rdflib").URIRef(SKOS + "prefLabel")), *g.objects(t, __import__("rdflib").URIRef(SKOS + "altLabel"))]:
@@ -186,7 +186,8 @@ def test_finding_11_one_status_vocabulary_everywhere():
     verify = json.loads(run("verify", "--all", "--json").stdout)["rows"]
     assert {r["status"] for r in verify if r["state"] == "cite-only"} == {"cite-only"}
     assert json.loads(run("define", "probe", "--json").stdout)["status"] == "machine"
-    assert "[]" not in run("check-word", "OG-CAIE").stdout
+    assert "[]" not in run("check-word", "CAIE").stdout
+    assert "not registered" in run("check-word", "OG-CAIE").stdout
 
 
 def test_finding_12_help_lists_the_allowed_values():
@@ -201,7 +202,7 @@ def test_finding_13_json_carries_the_invocation_and_sha():
     d = json.loads(run("term", "probe", "--json").stdout)
     assert d["_ogc"] == {"command": "term", "args": "probe", "sha": d["_ogc"]["sha"]} and len(d["_ogc"]["sha"]) >= 7
     d = json.loads(run("list", "--class", "coined", "--json").stdout)
-    assert d["_ogc"]["args"] == "--class coined" and len(d["rows"]) == 4
+    assert d["_ogc"]["args"] == "--class coined" and len(d["rows"]) == 3
 
 
 def test_finding_14_json_summary_and_no_empty_grep_fields():
@@ -407,7 +408,7 @@ def test_r2_finding_06_sparql_header_is_re_runnable():
     m = re.fullmatch(r"# ogc sparql (.*) #sha256:([0-9a-f]{12}) @ \S+", head)
     assert m and m.group(2) == hashlib.sha256(q.encode()).hexdigest()[:12]
     again = run("sparql", shlex.split(m.group(1))[0].replace("\\n", "\n"))  # the header is shell-quoted since round four (M4): split it as a shell would, then unescape
-    assert again.stdout.splitlines()[1:] == r.stdout.splitlines()[1:] and "(4 rows)" in again.stdout
+    assert again.stdout.splitlines()[1:] == r.stdout.splitlines()[1:] and "(3 rows)" in again.stdout
     assert json.loads(run("sparql", q, "--json").stdout)["_ogc"]["args"] == head[len("# ogc sparql "):].rsplit(" @ ", 1)[0]
     f = ROOT / ".cache" / "r2-finding-06.rq"
     f.parent.mkdir(exist_ok=True)
@@ -466,7 +467,7 @@ def test_r2_finding_12_schema_and_shapes_count_the_same_files_and_doctor_parses_
     n = len(_json("shapes")[1]["rows"])
     assert _json("schema")[1]["counts"]["shapes"] == n and n > 45
     r = run("doctor")
-    for f in ("shapes/glossary.shapes.ttl", "shapes/rulings.shapes.ttl", "track/measles-evaluation.ttl", "model/og-caie.model.ttl"):
+    for f in ("shapes/glossary.shapes.ttl", "shapes/rulings.shapes.ttl", "track/measles-evaluation.ttl", "model/caie.model.ttl"):
         assert re.search(rf"^ok\s+{re.escape(f)} \(\d+ triples\)$", r.stdout, re.M), f
     assert re.search(r"^ok\s+the record's digests: the verdict names shapes/epo.shapes.ttl and vocabulary/epo.ttl as committed and the record as it stood", r.stdout, re.M)  # sheet 10-18; round four, KG 8
 
@@ -541,7 +542,7 @@ def test_r2_finding_21_coined_terms_say_coined_by():
     assert "coined by:" in r and not re.search(r"^canonical:\s*$", r, re.M)
     r = run("define", "DSO").stdout
     assert "coined by:" in r and "canonical: ," not in r
-    r = run("check-word", "OG-CAIE").stdout
+    r = run("check-word", "CAIE").stdout
     assert "coined by:" in r and not re.search(r"canonical:\s*$", r, re.M)
     assert "(coined)" in run("list", "--class", "coined").stdout and "(coined)" in run("crosswalk", "--class", "coined").stdout
     assert all(x["source"] == "(coined)" for x in _json("list", "--class", "coined")[1]["rows"])
@@ -1207,7 +1208,7 @@ def test_d4_permission_line():
         out = run(*cmd).stdout
         assert out.count(stmt) == 1 and out.rstrip().splitlines()[-1] == f"permission: {stmt}", cmd
         assert json.loads(run(*cmd, "--json").stdout)["permission"] == stmt, cmd
-    for cmd in (["quote", "conformity"], ["define", "conformity"], ["term", "OG-CAIE"], ["verify", "iso-9000-2026"], ["verify", "--all", "--status", "cite-only"], ["quote", "scope"]):
+    for cmd in (["quote", "conformity"], ["define", "conformity"], ["term", "CAIE"], ["verify", "iso-9000-2026"], ["verify", "--all", "--status", "cite-only"], ["quote", "scope"]):
         out = run(*cmd).stdout
         assert stmt not in out, cmd
         assert "permission" not in json.loads(run(*cmd, "--json").stdout), cmd

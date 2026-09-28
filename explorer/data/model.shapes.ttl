@@ -4,7 +4,7 @@
 @prefix ogm:   <https://w3id.org/og-caie/model#> .
 @prefix ogc:   <https://w3id.org/og-caie/> .
 
-# Wiring rules over the canonical model graph (model/og-caie.model.ttl,
+# Wiring rules over the canonical model graph (model/caie.model.ttl,
 # ruling R-22). These are the structural half of the essentials: what the
 # part defs and port defs must collectively provide so that a conformant
 # record yields the end state (SCI-10 to SCI-12). Every rule is defined
@@ -22,7 +22,7 @@ ogc:M1-Parties a sh:NodeShape ;
         sh:select """
             PREFIX sysml: <https://www.omg.org/spec/SysML#>
             SELECT $this ?value WHERE {
-                $this sysml:declaredName "OgCaieEvaluation" .
+                $this sysml:declaredName "CaieEvaluation" .
                 {
                     SELECT $this ?value (COUNT(?u) AS ?n) WHERE {
                         { BIND("SponsorOrganization" AS ?value) } UNION { BIND("TestingOrganization" AS ?value) } UNION { BIND("AccountableOrganization" AS ?value) }
@@ -37,7 +37,7 @@ ogc:M1-Parties a sh:NodeShape ;
         sh:select """
             PREFIX sysml: <https://www.omg.org/spec/SysML#>
             SELECT $this WHERE {
-                $this sysml:declaredName "OgCaieEvaluation" .
+                $this sysml:declaredName "CaieEvaluation" .
                 FILTER NOT EXISTS {
                     ?u a sysml:PartUsage ; sysml:owner $this ; sysml:type ?t ; sysml:lowerBound ?lb .
                     ?t sysml:declaredName "AffectedPopulation" . ?lb sysml:value 0 .
@@ -53,7 +53,7 @@ ogc:M1-Obligation a sh:NodeShape ;
             PREFIX sysml: <https://www.omg.org/spec/SysML#>
             PREFIX ogm: <https://w3id.org/og-caie/model#>
             SELECT $this WHERE {
-                $this sysml:declaredName "OgCaieEvaluation" .
+                $this sysml:declaredName "CaieEvaluation" .
                 FILTER NOT EXISTS {
                     ?c a sysml:ConnectionUsage ; sysml:owner $this ; sysml:type ?t ; ogm:relatesFrom ?s ; ogm:relatesTo ?p .
                     ?t sysml:declaredName "Obligation" .

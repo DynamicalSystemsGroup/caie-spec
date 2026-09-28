@@ -1,1 +1,1 @@
-"""ogc: navigate the OG-CAIE vocabulary graph (ruling R-29)."""
+"""ogc: navigate the CAIE vocabulary graph (ruling R-29)."""

@@ -12,7 +12,7 @@ ROWS = 7
 
 
 def union():
-    return load("vocabulary/crosswalk.ttl", "vocabulary/og-caie.ttl", "vocabulary/epo.ttl",
+    return load("vocabulary/crosswalk.ttl", "vocabulary/caie.ttl", "vocabulary/epo.ttl",
                 "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl", "sources/sources.ttl")
 
 

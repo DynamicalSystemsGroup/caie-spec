@@ -64,13 +64,13 @@ def test_every_term_ruling_concern_essential_shape_seam_and_record_item_is_a_nod
     by_cls = {}
     for n in m["nodes"]:
         by_cls.setdefault(n["cls"], set()).add(n["id"])
-    g = load("vocabulary/og-caie.ttl", "rulings/adjudications.ttl", "model/trace.ttl", "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl")
+    g = load("vocabulary/caie.ttl", "rulings/adjudications.ttl", "model/trace.ttl", "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl")
     assert by_cls["term"] == {str(t) for t in g.subjects(RDF.type, SKOS.Concept)}
     assert by_cls["ruling"] == {str(r) for r in g.subjects(RDF.type, OGC.Ruling)}
     assert by_cls["concern"] == {str(c) for c in g.subjects(RDF.type, OGC.Concern)}
     assert by_cls["sci"] == {str(t) for t in g.subjects(RDF.type, OGC.Trace)}
     assert by_cls["shape"] == {str(s) for s in g.subjects(RDF.type, SH.NodeShape)}
-    mg = load("model/og-caie.model.ttl")
+    mg = load("model/caie.model.ttl")
     assert by_cls["seam"] == {str(s) for s in mg.subjects(RDF.type, SYS.InterfaceUsage)}
     assert by_cls["part"] == {str(s) for s in mg.subjects(RDF.type, SYS.PartDefinition)}
     rg = load("track/measles-evaluation.ttl")

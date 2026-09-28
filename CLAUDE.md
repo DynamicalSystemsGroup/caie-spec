@@ -1,9 +1,8 @@
 # og-caie-spec: working rules
 
-Executable specification of Ontology-Grounded Contextual AI Evaluation
-(OG-CAIE). Plan of record: `~/.claude/plans/i-need-to-build-nifty-beaver.md`
-(Z approved 2026-09-05). The method for sources and rulings follows the
-authors' earlier glossary work.
+Executable specification of Contextual AI Evaluation (CAIE). Plan of record:
+`~/.claude/plans/i-need-to-build-nifty-beaver.md` (Z approved 2026-09-05).
+The method for sources and rulings follows the authors' earlier glossary work.
 
 ## Vocabulary: use terms, don't own them
 
@@ -14,10 +13,9 @@ authors' earlier glossary work.
   bodies, 7 academic works, 8 the authors. The canonical is the
   highest-ranked source that defines the term in the sense used; every
   other source cited on the term is `ogc:seeAlso`.
-- Coinage is exactly four, with shorthands (R-29): Domain-Specific Ontology
-  (DSO), Evaluation Process Ontology (EPO), Contextual AI Evaluation (CAIE),
-  OG-CAIE (CAIE performed with the EPO and DSO method). A fifth needs a
-  ruling first.
+- Coinage is exactly three, with shorthands (R-29, R-52): Domain-Specific
+  Ontology (DSO), Evaluation Process Ontology (EPO), Contextual AI Evaluation
+  (CAIE). A fourth needs a ruling first.
 - Two cycles, twelve steps, each citing the canon step it matches (R-31,
   R-32; the contracting lifecycle pins the first layer of assumptions, the
   evaluation the second; ogc:pinnedAt on every item class):
@@ -55,7 +53,7 @@ authors' earlier glossary work.
   the full table is generated for the paper only (R-29).
 - The arc (R-29, R-30): the front page and the conclusion are the
   bookends, why and what, grounded in Popper ("CAIE would be science if it
-  covers these things"; "OG-CAIE demonstrably covers these things"). The
+  covers these things"; "CAIE demonstrably covers these things"). The
   inner chapters are what and how, achieved through the engineering
   standards, in theory by the executable spec and in practice by the worked
   example. The restriction is on using Popper's senses inside, not on the
@@ -182,7 +180,7 @@ authors' earlier glossary work.
   requirement defs, no `-satisfy`, no value constraints (v0.4.3 cannot
   quantify over collections anyway).
 - The canonical structure is the pruned RDF rendering
-  `model/og-caie.model.ttl` (`scripts/prune_model.py`: term map
+  `model/caie.model.ttl` (`scripts/prune_model.py`: term map
   `model/sysml_term_map.csv`, manifest, `TRIPLE_BUDGET` with a rationale,
   pattern from the authors' earlier lifecycle models). Committed; the gate regenerates it
   byte-identically. Wiring rules are SHACL M-shapes over that graph;

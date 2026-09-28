@@ -190,8 +190,8 @@ def render_enforcement() -> str:
 # namespace and its standard; every count below is computed from the
 # committed Turtle files, and a namespace in use but not registered here is
 # rendered as such so the test catches it.
-GRAPH_FILES = ["vocabulary/og-caie.ttl", "vocabulary/epo.ttl", "vocabulary/crosswalk.ttl", "vocabulary/register.ttl", "vocabulary/ogm.ttl", "sources/sources.ttl",
-               "rulings/adjudications.ttl", "model/trace.ttl", "model/og-caie.model.ttl", "track/measles-evaluation.ttl",
+GRAPH_FILES = ["vocabulary/caie.ttl", "vocabulary/epo.ttl", "vocabulary/crosswalk.ttl", "vocabulary/register.ttl", "vocabulary/ogm.ttl", "sources/sources.ttl",
+               "rulings/adjudications.ttl", "model/trace.ttl", "model/caie.model.ttl", "track/measles-evaluation.ttl",
                "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl", "shapes/rulings.shapes.ttl"]
 ONTOLOGIES = [
     ("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", "W3C", "RDF 1.1: typing (rdf:type) and lists", "https://www.w3.org/TR/rdf11-concepts/"),

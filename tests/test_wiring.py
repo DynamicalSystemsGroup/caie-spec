@@ -16,7 +16,7 @@ PORTS = 76  # R-50: the signatory's four (three moved off the sponsor organizati
 
 
 def graph():
-    return load("model/og-caie.model.ttl")
+    return load("model/caie.model.ttl")
 
 
 def name(g, n):
@@ -97,7 +97,7 @@ def test_actor_categories_share_no_supplier_port_definition():
 def test_parties_and_roles_present():
     g = graph()
     defs = {name(g, d): d for d in g.subjects(RDF.type, SYS.PartDefinition)}
-    assembly = defs["OgCaieEvaluation"]
+    assembly = defs["CaieEvaluation"]
     typed = {name(g, g.value(u, SYS.type)) for u in g.subjects(SYS.owner, assembly) if (u, RDF.type, SYS.PartUsage) in g}
     assert typed == {"SponsorOrganization", "TestingOrganization", "AccountableOrganization", "AffectedPopulation"}
     org = defs["TestingOrganization"]

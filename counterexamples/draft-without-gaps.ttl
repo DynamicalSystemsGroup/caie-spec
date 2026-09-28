@@ -82,7 +82,7 @@ ev:need-1 a epo:Need ;
     prov:generatedAtTime "2026-07-28T10:00:00Z"^^xsd:dateTime .
 
 ev:proposal-1 a epo:Proposal ;
-    rdfs:label "Humane Intelligence proposes an OG-CAIE evaluation of the chatbot under the Apollo-SV DSO" ;
+    rdfs:label "Humane Intelligence proposes a CAIE evaluation of the chatbot under the Apollo-SV DSO" ;
     epo:respondsTo ev:need-1 ;
     prov:wasAttributedTo ev:mala ;
     prov:generatedAtTime "2026-07-30T10:00:00Z"^^xsd:dateTime .
@@ -606,7 +606,7 @@ ev:coverage-computation-draft a epo:CoverageComputation ;
     prov:used ev:attestation-1 ; prov:used ev:attestation-2 ; prov:used ev:attestation-3 ; prov:used ev:attestation-4 ; prov:used ev:attestation-5 ;
     prov:wasAssociatedWith ev:report-assembler ;
     earl:mode earl:automatic ;
-    epo:shapesDigest "3528a5c3e7cafd6a12327426711ae3c8aa35c96dd34d014879212fea6670215a" ; epo:ontologyDigest "c39d39f2ae5fd9c58381ad9a27ed37ddcc7074dd9de9001714a0b4acacd3935f" ; epo:queryDigest "ecc9688b862ffd77beae1e94d4cba1ae07701ca7521f2cff63b908da90eb9bb3" ;
+    epo:shapesDigest "833a9244929af415380cc53e4c2aeef745c49829aba7332c5797c92980dcf2c4" ; epo:ontologyDigest "226ec30913c1cf2d156ade504102036dce9e3b4e125d293d82371c233d67c2ad" ; epo:queryDigest "ecc9688b862ffd77beae1e94d4cba1ae07701ca7521f2cff63b908da90eb9bb3" ;
     prov:endedAtTime "2026-08-11T11:00:00Z"^^xsd:dateTime .
 
 ev:report-draft a epo:Report ;
@@ -677,8 +677,8 @@ ev:conformance-verdict-1 a epo:ConformanceVerdict ;
     earl:mode earl:automatic ; earl:assertedBy ev:pyshacl ;
     prov:wasAttributedTo ev:pyshacl ;
     prov:wasDerivedFrom ev:record ;
-    epo:recordDigest "0bf3f265466f70b4a9dbe4896595f73c3172ae337e3ba639fb015474ea63cc2f" ;
-    epo:shapesDigest "3528a5c3e7cafd6a12327426711ae3c8aa35c96dd34d014879212fea6670215a" ; epo:ontologyDigest "c39d39f2ae5fd9c58381ad9a27ed37ddcc7074dd9de9001714a0b4acacd3935f" ;
+    epo:recordDigest "36affc337166c3145fd387f7a14e797c8bb387601f0c7b6bcee4f6968c4cbb18" ;
+    epo:shapesDigest "833a9244929af415380cc53e4c2aeef745c49829aba7332c5797c92980dcf2c4" ; epo:ontologyDigest "226ec30913c1cf2d156ade504102036dce9e3b4e125d293d82371c233d67c2ad" ;
     earl:result [ a earl:TestResult ; earl:outcome earl:passed ; earl:info "the record conforms to S0 to S9: every criterion planned, tested and attested, the follow-up session and the draft before the final report, traceable in both directions" ] ;
     prov:generatedAtTime "2026-08-12T09:30:00Z"^^xsd:dateTime .
 
@@ -688,7 +688,7 @@ ev:coverage-computation a epo:CoverageComputation ;
     prov:used ev:conformance-verdict-1 ;
     prov:wasAssociatedWith ev:report-assembler ;
     earl:mode earl:automatic ;
-    epo:shapesDigest "3528a5c3e7cafd6a12327426711ae3c8aa35c96dd34d014879212fea6670215a" ; epo:ontologyDigest "c39d39f2ae5fd9c58381ad9a27ed37ddcc7074dd9de9001714a0b4acacd3935f" ; epo:queryDigest "ecc9688b862ffd77beae1e94d4cba1ae07701ca7521f2cff63b908da90eb9bb3" ;
+    epo:shapesDigest "833a9244929af415380cc53e4c2aeef745c49829aba7332c5797c92980dcf2c4" ; epo:ontologyDigest "226ec30913c1cf2d156ade504102036dce9e3b4e125d293d82371c233d67c2ad" ; epo:queryDigest "ecc9688b862ffd77beae1e94d4cba1ae07701ca7521f2cff63b908da90eb9bb3" ;
     prov:endedAtTime "2026-08-12T10:00:00Z"^^xsd:dateTime .
 
 ev:report a epo:Report ;

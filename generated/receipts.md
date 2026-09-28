@@ -3,9 +3,9 @@
 ### Strict validation of the authoring view
 
 ```text
-$ sysml model/og-caie.sysml -validate -strict
-✓ package OGCAIE
-✓ model/og-caie.sysml: no errors
+$ sysml model/caie.sysml -validate -strict
+✓ package CAIE
+✓ model/caie.sysml: no errors
 (exit 0)
 ```
 ### The canonical model graph

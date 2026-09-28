@@ -1,11 +1,11 @@
 version: 1
 project:
-  title: OG-CAIE as an executable specification
+  title: CAIE as an executable specification
   description: >
-    Ontology-Grounded Contextual AI Evaluation: the process, its vocabulary
-    grounded in ISO, IEEE and NIST canon, the human and machine assemblage
-    that runs it, and one evaluation record whose conformance is checked by
-    machine and whose judgments are attested by named people.
+    Contextual AI Evaluation: the process, its vocabulary grounded in ISO,
+    IEEE and NIST canon, the human and machine assemblage that runs it, and
+    one evaluation record whose conformance is checked by machine and whose
+    judgments are attested by named people.
   authors:
     - name: Michael Zargham
       orcid: 0000-0001-5279-690X
@@ -25,7 +25,6 @@ project:
   numbering:
     headings: true
   abbreviations:
-    OG-CAIE: Ontology-Grounded Contextual AI Evaluation
     CAIE: Contextual AI Evaluation
     DSO: Domain-Specific Ontology
     EPO: Evaluation Process Ontology

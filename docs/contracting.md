@@ -93,7 +93,7 @@ The county public-health office exists to protect the health of residents
 and of the people passing through the county, and must inform the public
 accurately during an outbreak; that mission opens the record. It needed to
 know whether its chatbot could give measles advice to the public. Humane
-Intelligence proposed an OG-CAIE evaluation; Mala, its
+Intelligence proposed a CAIE evaluation; Mala, its
 authorized representative, signed for it on 31 July and declared it
 independent of the vendor; Dana Okafor, the county's health officer,
 signed for the county and declared its user interest in the chatbot; the

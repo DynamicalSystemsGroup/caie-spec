@@ -1,6 +1,6 @@
 # Appendix A: the sample report
 
-This appendix is the report a sponsor receives at the end of an OG-CAIE
+This appendix is the report a sponsor receives at the end of a CAIE
 evaluation, written for one reader: the executive who runs the sponsoring
 organization, a public-health office or a non-profit, who knows the domain
 and little about AI. It answers the question that executive asked, in one

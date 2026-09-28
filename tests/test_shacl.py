@@ -42,7 +42,7 @@ def shapes():
 
 
 def data(*paths):
-    return load("vocabulary/epo.ttl", "model/og-caie.model.ttl", *paths)
+    return load("vocabulary/epo.ttl", "model/caie.model.ttl", *paths)
 
 
 def violated_shapes(results_graph, shapes_graph):

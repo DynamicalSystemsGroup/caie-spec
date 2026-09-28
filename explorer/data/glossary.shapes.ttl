@@ -5,7 +5,7 @@
 @prefix ogc:  <https://w3id.org/og-caie/> .
 
 # Citation discipline. A definition with no traceable source is an invention.
-# Validate over vocabulary/og-caie.ttl + sources/sources.ttl +
+# Validate over vocabulary/caie.ttl + sources/sources.ttl +
 # rulings/adjudications.ttl together so ogc:cites resolves to a real source.
 
 ogc:TermShape a sh:NodeShape ;

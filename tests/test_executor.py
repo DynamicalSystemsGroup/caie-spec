@@ -14,7 +14,7 @@ SYS = Namespace("https://www.omg.org/spec/SysML#")
 
 @pytest.fixture(scope="module")
 def graphs():
-    return load("model/og-caie.model.ttl"), load("shapes/epo.shapes.ttl"), load("vocabulary/epo.ttl")
+    return load("model/caie.model.ttl"), load("shapes/epo.shapes.ttl"), load("vocabulary/epo.ttl")
 
 
 @pytest.fixture(scope="module")
@@ -76,7 +76,7 @@ def test_executor_refuses_a_model_whose_signature_drifts(graphs):
     model = Graph()
     for t in graphs[0]:
         model.add(t)
-    approval = next(p for p in model.subjects(SYS.declaredName, None) if str(model.value(p, SYS.qualifiedName)) == "OGCAIE::EvaluationProcess::plan::approval")
+    approval = next(p for p in model.subjects(SYS.declaredName, None) if str(model.value(p, SYS.qualifiedName)) == "CAIE::EvaluationProcess::plan::approval")
     model.remove((approval, None, None))
     with pytest.raises(RuntimeError, match="step plan"):
         executor.execute(model)

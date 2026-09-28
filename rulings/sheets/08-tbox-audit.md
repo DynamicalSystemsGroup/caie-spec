@@ -128,7 +128,7 @@ conformance under conformity; session under test; probe under test case;
 evaluation record under record; evaluation operator under technical expert;
 authoritative reference under knowledge graph; Domain-Specific Ontology and
 Evaluation Process Ontology under ontology; Contextual AI Evaluation under
-evaluation; OG-CAIE under Contextual AI Evaluation; customer and provider
+evaluation; CAIE under Contextual AI Evaluation; customer and provider
 under stakeholder; provider under organization; the four party
 specializations under provider and customer.
 
@@ -152,7 +152,7 @@ an altLabel of technical expert, with evaluation operator its narrower
 sibling; evaluation operator and evaluation team related (member, not
 kind); statement of work and contract related (part, not kind); the three
 party activities related to each other, no common broader term (C-25 stays
-open); Contextual AI Evaluation narrower than evaluation; OG-CAIE narrower
+open); Contextual AI Evaluation narrower than evaluation; CAIE narrower
 than Contextual AI Evaluation.
 
 ### SKOS to the standards
@@ -271,7 +271,7 @@ audit's scope and name the old headwords:
   accountable organization once); `docs/evaluation.md` line 56
   (`{term}`account executive``, which resolves through the altLabel and
   renders the new hover; the display text is the old word).
-- `model/og-caie.sysml` doc comments at lines 126, 130, 219, 408, 426, 485
+- `model/caie.sysml` doc comments at lines 126, 130, 219, 408, 426, 485
   and 562 (the structure itself is untouched; the pruned model graph is
   byte-identical).
 - `ogc/views.py` line 298 (the contracting view's caption).

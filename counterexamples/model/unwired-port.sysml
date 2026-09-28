@@ -34,7 +34,7 @@ package UnwiredPort {
     part def ProbeDeriver :> Machine { port probesOut : ProbeWrite; }
     part def Recorder :> Machine { port dsoIn : ~DsoWrite; port orphanIn : ~DsoWrite; port recordToExecutive : RecordWrite; }
     part def TestingOrganization :> Organization { part accountExecutive : AccountExecutive; part team : EvaluationTeam; part probeDeriver : ProbeDeriver; part recorder : Recorder; }
-    part def OgCaieEvaluation {
+    part def CaieEvaluation {
         interface dsoSeam : DsoSeam connect testingOrg.team.domainExpert.dsoOut to testingOrg.recorder.dsoIn;
         interface derivedProbeSeam : ProbeSeam connect testingOrg.probeDeriver.probesOut to testingOrg.team.operator.probesIn;
         interface probeRunSeam : ProbeSeam connect testingOrg.team.operator.probesToItem to accountable.testItem.probesIn;

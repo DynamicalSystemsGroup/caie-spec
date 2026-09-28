@@ -1,6 +1,6 @@
 # Rulings sheet 05: the blocks and the wires (concern C-30)
 
-Generated from `model/og-caie.model.ttl` by `scripts/render.py`; do not edit the rows by hand, tick them. One row per kind of part (its inputs and outputs) and one per wire (output port on a part to input port on a part). Ticks come from rulings/validated.ttl (Z's walkthrough, R-48 sheet 07-09), so regeneration keeps them; add a concern for anything wrong.
+Generated from `model/caie.model.ttl` by `scripts/render.py`; do not edit the rows by hand, tick them. One row per kind of part (its inputs and outputs) and one per wire (output port on a part to input port on a part). Ticks come from rulings/validated.ttl (Z's walkthrough, R-48 sheet 07-09), so regeneration keeps them; add a concern for anything wrong.
 
 ## Blocks
 

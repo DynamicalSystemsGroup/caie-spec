@@ -10,7 +10,7 @@ package NoObligation {
     part def AccountableOrganization :> Organization;
     part def AffectedPopulation :> Party;
     connection def Obligation { end sponsor : SponsorOrganization; end population : AffectedPopulation; }
-    part def OgCaieEvaluation {
+    part def CaieEvaluation {
         part sponsor : SponsorOrganization;
         part testingOrg : TestingOrganization;
         part accountable : AccountableOrganization;

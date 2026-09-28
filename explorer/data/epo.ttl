@@ -16,7 +16,7 @@
 # imported. Prior art: DynamicalSystemsGroup/caie-epo-prototype (June 2026).
 
 epo: a owl:Ontology ;
-    rdfs:label "OG-CAIE Evaluation Process Ontology (EPO), minimal handles" ;
+    rdfs:label "CAIE Evaluation Process Ontology (EPO), minimal handles" ;
     owl:versionInfo "0.3.0 in preparation; the git tag is the version" ;
     owl:imports <http://www.w3.org/ns/prov-o#> , <http://www.w3.org/ns/earl#> ;
     rdfs:comment "Assembles PROV-O and EARL. A coined term (ruling R-09): the domain-independent standard operating procedure whose record, when it conforms to shapes/epo.shapes.ttl, shows the process was followed and lets coverage be computed." .
@@ -30,7 +30,7 @@ epo: a owl:Ontology ;
 epo:Step a owl:Class ; rdfs:label "step (of either cycle)" ; rdfs:comment "no term: a structural superclass so that ogc:derivedStep ranges over both cycles' steps without contradicting their disjointness (sheet 10)" .
 # The step of a record item is derived, never asserted (sheet 10-33, R-50):
 # the item's class is realized by an item kind of the model
-# (model/og-caie.model.ttl, ogm:realizes), the item kind is an out
+# (model/caie.model.ttl, ogm:realizes), the item kind is an out
 # parameter of a step of the model, and that step realizes one of the
 # epo: steps below. ogc/graph.py adds the derived ogc:derivedStep triples
 # (vocabulary/derived.ttl) in memory when the record and the model graph are loaded together; the
@@ -223,7 +223,7 @@ epo:Proposal a owl:Class ; rdfs:subClassOf prov:Entity ; ogc:pinnedAt epo:contra
 epo:Acceptance a owl:Class ; rdfs:subClassOf prov:Entity ; ogc:pinnedAt epo:contract ; rdfs:label "acceptance" ;
     rdfs:comment "the sponsor's acceptance of the delivery as performance of the agreement. No term: SEVOCAB acceptance is cited on step C6; the item is the sponsor's act and needs no headword of its own" .
 epo:ServiceAgreement a owl:Class ; rdfs:subClassOf prov:Entity ; ogc:pinnedAt epo:contract ; rdfs:label "service agreement" ; ogc:term term:contract ;
-    rdfs:comment "the contract (ISO 9000:2026 3.3.13) to perform OG-CAIE as a service, signed by the sponsor's signatory and the testing organization's authorized representative, each on behalf of their organization (R-21, R-23, R-50); accepts the proposal" .
+    rdfs:comment "the contract (ISO 9000:2026 3.3.13) to perform CAIE as a service, signed by the sponsor's signatory and the testing organization's authorized representative, each on behalf of their organization (R-21, R-23, R-50); accepts the proposal" .
 epo:IndependenceDeclaration a owl:Class ; rdfs:subClassOf prov:Entity ; ogc:pinnedAt epo:contract ; rdfs:label "independence declaration" ;
     rdfs:comment "the testing organization's dated statement, made by its authorized representative, that it is independent of the test item provider (ISO/IEC 17000 4.5, 5.4; sheet 10-07). No term: the declaration records the party fact that makes the testing organization's activity third-party (term third-party conformity assessment activity); it is the fact's record, not a headword" .
 epo:UserInterestDeclaration a owl:Class ; rdfs:subClassOf prov:Entity ; ogc:pinnedAt epo:contract ; rdfs:label "user-interest declaration" ;

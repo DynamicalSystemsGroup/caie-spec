@@ -21,7 +21,7 @@ def prose_text():
 
 
 def test_no_retired_words_in_prose_or_model():
-    text = prose_text() + (ROOT / "model" / "og-caie.sysml").read_text()
+    text = prose_text() + (ROOT / "model" / "caie.sysml").read_text()
     # Deliberate mentions are allowed: text inside double quotes (a source
     # quoted verbatim) and the phrase that explains the retirement itself.
     text = re.sub(r'"[^"\n]*"', "", text)
@@ -37,8 +37,8 @@ def test_no_em_dashes_in_prose():
 
 
 def test_every_glossary_term_is_used():
-    g = load("vocabulary/og-caie.ttl")
-    haystack = (prose_text() + (ROOT / "model" / "og-caie.sysml").read_text()
+    g = load("vocabulary/caie.ttl")
+    haystack = (prose_text() + (ROOT / "model" / "caie.sysml").read_text()
                 + (ROOT / "track" / "measles-evaluation.ttl").read_text() + (ROOT / "shapes" / "epo.shapes.ttl").read_text()).lower()
     unused = []
     for t in g.subjects(RDF.type, SKOS.Concept):
@@ -78,7 +78,7 @@ def test_term_roles_resolve_and_key_terms_match():
     import sys
     sys.path.insert(0, str(ROOT / "scripts"))
     from render import referenced_terms
-    g = load("vocabulary/og-caie.ttl")
+    g = load("vocabulary/caie.ttl")
     found, unresolved = referenced_terms(g)
     assert not unresolved, unresolved
     rendered = re.findall(r"^([^:\n`][^\n]*)\n: ", (ROOT / "generated" / "key-terms.md").read_text(), re.M)

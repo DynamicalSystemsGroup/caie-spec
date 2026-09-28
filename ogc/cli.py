@@ -1,4 +1,4 @@
-"""ogc: navigate the OG-CAIE vocabulary graph. Deterministic, ontology-aware
+"""ogc: navigate the CAIE vocabulary graph. Deterministic, ontology-aware
 retrieval; every command is a named query over the vocabulary, the sources,
 the rulings, the essentials, the shapes and the crosswalk. First line of
 every output: `# ogc <command> <args> @ <sha>` (the invocation in its canonical
@@ -333,7 +333,7 @@ def build_parser() -> argparse.ArgumentParser:
     common.add_argument("--no-cache", action="store_true", default=argparse.SUPPRESS, help="parse the Turtle afresh instead of reading the pickle cache under .cache/")
     common.add_argument("--wide", action="store_true", default=argparse.SUPPRESS, help="do not clip table cells at 80 characters")
     loads = argparse.ArgumentParser(add_help=False)
-    loads.add_argument("--model", action="store_true", default=argparse.SUPPRESS, help="also load the canonical model graph model/og-caie.model.ttl (the OMG sysml: rendering of the structure; implied by view, views and execute); part of the printed and hashed args; " + LOAD_HINT)
+    loads.add_argument("--model", action="store_true", default=argparse.SUPPRESS, help="also load the canonical model graph model/caie.model.ttl (the OMG sysml: rendering of the structure; implied by view, views and execute); part of the printed and hashed args; " + LOAD_HINT)
     loads.add_argument("--record", action="store_true", default=argparse.SUPPRESS, help="also load the worked example's record track/measles-evaluation.ttl, the measles evaluation (the ev: namespace, with the model graph the step is derived through; implied by record); part of the printed and hashed args; " + LOAD_HINT)
     ap = Parser(prog="ogc", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter, parents=[common, loads],
                 epilog="global flags may be placed before or after the subcommand; quote multi-word names.")
@@ -434,7 +434,7 @@ def main(argv=None) -> int:
         return usage(args, hint)
     if (args.model and c not in MODEL_CMDS) or (args.record and c not in RECORD_CMDS and c != "doctor"):  # doctor's --record is a path, its own option
         return usage(args, LOAD_HINT)
-    if not (args.root / "vocabulary" / "og-caie.ttl").exists():
+    if not (args.root / "vocabulary" / "caie.ttl").exists():
         return usage(args, f"no og-caie-spec checkout at {args.root}; set --root or OGC_ROOT")
     argstr = args.argstr
     if c == "doctor":
@@ -1033,7 +1033,7 @@ def sparql(args, g, argstr: str) -> int:
     if not args.model:
         ref = model_reference(bare_q)
         if ref:
-            return refuse(args, f"the query names the model graph ({ref}), which is not loaded; add --model to load model/og-caie.model.ttl (the sysml: vocabulary, the elmt: nodes, the ogm: and sysx: namespaces)")
+            return refuse(args, f"the query names the model graph ({ref}), which is not loaded; add --model to load model/caie.model.ttl (the sysml: vocabulary, the elmt: nodes, the ogm: and sysx: namespaces)")
     injected_lines = injected_chars = 0
     if "PREFIX" not in q.upper():
         injected_lines, injected_chars = SPARQL_PREFIXES.count("\n"), len(SPARQL_PREFIXES)
@@ -1168,7 +1168,7 @@ def doctor(args) -> int:
     amb = api.ambiguous_labels(g)
     add("ok" if not amb else "BAD", "every label resolves to one term" + ("" if not amb else ": " + "; ".join(f"'{a['label']}' -> {', '.join(a['terms'])}" for a in amb)), bool(amb))
     coined = [api.one(g, t, SKOS.prefLabel) for t in api.concepts(g) if api.one(g, t, OGC["class"]) == "coined"]
-    add("ok" if len(coined) == 4 else "BAD", f"coinage is exactly four ({', '.join(sorted(coined))})", len(coined) != 4)
+    add("ok" if len(coined) == 3 else "BAD", f"coinage is exactly three ({', '.join(sorted(coined))})", len(coined) != 3)
     noq = [api.one(g, t, SKOS.prefLabel) for t in api.concepts(g) if api.one(g, t, OGC["class"]) in ("adopted", "refined") and not api.one(g, g.value(t, OGC.canonical), OGC.quote)]
     add("ok" if not noq else "BAD", "every adopted or refined term carries a verbatim canonical quote" + (": missing on " + ", ".join(noq) if noq else ""), bool(noq))
     located = api.verify_all(g, root)

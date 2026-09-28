@@ -15,7 +15,7 @@ def query(name, g):
 
 
 def data():
-    return load("vocabulary/epo.ttl", "model/og-caie.model.ttl", "track/measles-evaluation.ttl")
+    return load("vocabulary/epo.ttl", "model/caie.model.ttl", "track/measles-evaluation.ttl")
 
 
 def test_coverage_recomputes_to_the_report():

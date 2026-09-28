@@ -1,7 +1,7 @@
 ---
 name: ogc-glossary
 description: >
-  Navigating the OG-CAIE vocabulary graph with the `ogc` CLI: what a term
+  Navigating the CAIE vocabulary graph with the `ogc` CLI: what a term
   means, its class and anchor, its canonical citation with the verbatim quote
   and where the quote was found, which ruling settled it, which concern names
   it, which essential (SCI) is stated in it, which shape checks it, whether a
@@ -102,7 +102,7 @@ header and the JSON `_ogc.args` carry the path).
    `ogc term <term>` reads it.
 2. Three classes: adopted (used as the source defines it), refined (a typed
    anchor, specializes / corresponds / synonym, keeping the source's word as
-   an altLabel), coined (exactly four: DSO, EPO, CAIE, OG-CAIE).
+   an altLabel), coined (exactly three: DSO, EPO, CAIE).
    `ogc list --class coined`. The anchor is also stated in SKOS (sheet 08):
    each term maps to the standard's own concept, a clause node in `src:`
    with its locator (adopted `skos:exactMatch`, specializes
@@ -209,11 +209,11 @@ model graph, through which each item's step is derived (sheet 10-33);
 the printed and hashed args, so a `sparql` answer says which graphs it was
 asked over.
 
-The files behind the tool are `vocabulary/og-caie.ttl`, `vocabulary/epo.ttl`,
+The files behind the tool are `vocabulary/caie.ttl`, `vocabulary/epo.ttl`,
 `vocabulary/register.ttl`, `vocabulary/ogm.ttl`,
 `vocabulary/crosswalk.ttl`, `sources/sources.ttl`,
 `rulings/adjudications.ttl`, `model/trace.ttl`, the four shape files under
-`shapes/`, `model/og-caie.model.ttl`, `vocabulary/derived.ttl` (the
+`shapes/`, `model/caie.model.ttl`, `vocabulary/derived.ttl` (the
 declaration of `ogc:derivedStep`, loaded with the record) and
 `track/measles-evaluation.ttl`.
 Never open these; they are what ogc reads. `ogc doctor` parses every one

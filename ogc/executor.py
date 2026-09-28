@@ -593,7 +593,7 @@ def _checker_graphs() -> tuple[Graph, Graph, Graph]:
     global _CHECKER
     if _CHECKER is None:
         root = views_root()
-        _CHECKER = (Graph().parse(root / "shapes" / "epo.shapes.ttl"), Graph().parse(root / "vocabulary" / "epo.ttl"), Graph().parse(root / "model" / "og-caie.model.ttl"))
+        _CHECKER = (Graph().parse(root / "shapes" / "epo.shapes.ttl"), Graph().parse(root / "vocabulary" / "epo.ttl"), Graph().parse(root / "model" / "caie.model.ttl"))
     return _CHECKER
 
 

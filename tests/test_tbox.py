@@ -20,9 +20,9 @@ EV = Namespace("https://w3id.org/og-caie/evaluation/measles#")  # the measles ev
 TERM = Namespace("https://w3id.org/og-caie/terms#")
 OGC_TERM = OGC["term"]  # OGC.term would be rdflib's Namespace.term method
 
-CONCEPTS = 69            # 62 before the audit, plus the four party specializations
-BROADER = 20             # each with its narrower stated on the other term
-RELATED = 190  # sheet 10: three pairs made symmetric            # stated on one or both sides in the Turtle; read in both directions
+CONCEPTS = 68            # 62 before the audit, plus the four party specializations; OG-CAIE retired (R-52)
+BROADER = 19             # each with its narrower stated on the other term; OG-CAIE broad→CAIE removed (R-52)
+RELATED = 188  # sheet 10: three pairs made symmetric; OG-CAIE related→EPO/DSO removed (R-52)            # stated on one or both sides in the Turtle; read in both directions
 CLAUSES = 59  # sheet 10-45 and 10-26: SEVOCAB ontology, repeatability, reproducibility, dialog; NIST tester             # the standards' own concepts (src: nodes) the canonical citations name
 MAPPINGS = {"exactMatch": 44, "broadMatch": 18, "closeMatch": 3, "relatedMatch": 0}  # adopted, specializes, corresponds, synonym; sheet 10-23, 24, 25, 30: attestation, determination, technical expert and mission refined
 EPO_CLASSES = 64  # R-51 (sheet 10-48): epo:FitnessValue; sheet 10: epo:Step, the range of epo:step over both cycles; R-50: RequirementSetApproval, IndependenceDeclaration, UserInterestDeclaration, PlanDeviation, SponsorSignatoryRole, IndependenceLevel         # 40 before the audit, plus the twelve role classes and epo:Affectedness, plus the report step opened (R-49: ConformanceVerdict, ReportApproval)
@@ -32,15 +32,15 @@ RELATION_BY_ANCHOR = {("adopted", ""): SKOS.exactMatch, ("refined", "specializes
 
 
 def glossary():
-    return load("vocabulary/og-caie.ttl", "sources/sources.ttl")
+    return load("vocabulary/caie.ttl", "sources/sources.ttl")
 
 
 def epo():
-    return load("vocabulary/epo.ttl", "vocabulary/og-caie.ttl")
+    return load("vocabulary/epo.ttl", "vocabulary/caie.ttl")
 
 
 def record():
-    return load("vocabulary/epo.ttl", "model/og-caie.model.ttl", "track/measles-evaluation.ttl")  # the model graph too: the step is derived through it (sheet 10-33)
+    return load("vocabulary/epo.ttl", "model/caie.model.ttl", "track/measles-evaluation.ttl")  # the model graph too: the step is derived through it (sheet 10-33)
 
 
 def concepts(g):
@@ -218,7 +218,7 @@ def test_dso_precondition_holds_on_the_record_and_its_counterexample_fails():
     shapes = load("shapes/epo.shapes.ttl")
     ok, _, report = validate(record(), shacl_graph=shapes, advanced=True)
     assert ok, report
-    ok, results, _ = validate(load("vocabulary/epo.ttl", "model/og-caie.model.ttl", "counterexamples/dso-before-stakeholder-input.ttl"), shacl_graph=shapes, advanced=True)
+    ok, results, _ = validate(load("vocabulary/epo.ttl", "model/caie.model.ttl", "counterexamples/dso-before-stakeholder-input.ttl"), shacl_graph=shapes, advanced=True)
     assert not ok
     fired = {str(s).rsplit("/", 1)[-1] for s in results.objects(None, SH.sourceShape)}
     assert fired == {"S1-DsoRelease"}, fired

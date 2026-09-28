@@ -33,7 +33,7 @@ the experts were right; that is theirs, and it is recorded with their names.
 
 ## Where this goes
 
-Two offers close this specification. Use OG-CAIE: the process, the
+Two offers close this specification. Use CAIE: the process, the
 vocabulary and the record format are open, and the measles example shows
 the whole chain across two chapters. Or have your own AI evaluation practice audited
 against it: every requirement here is checkable, so an existing practice can

@@ -13,7 +13,7 @@
 # graphs finds every ogc: term defined; the values are documented on each.
 
 <https://w3id.org/og-caie/register> a owl:Ontology ;
-    rdfs:label "the OG-CAIE register vocabulary" ;
+    rdfs:label "the CAIE register vocabulary" ;
     owl:versionInfo "0.3.0 in preparation; the git tag is the version" ;
     owl:imports <http://www.w3.org/ns/prov-o#> , <http://www.w3.org/ns/earl#> , <http://www.w3.org/2004/02/skos/core> ;
     rdfs:comment "Declares every ogc: class and property, the one home of each (round four, KG 10); the shapes over the register are shapes/glossary.shapes.ttl and shapes/rulings.shapes.ttl." .
@@ -42,7 +42,7 @@ ogc:anchorRelation a owl:DatatypeProperty ; rdfs:label "anchorRelation" ; rdfs:c
 ogc:binding a owl:DatatypeProperty ; rdfs:label "binding" ; rdfs:comment "the technical binding of a term: the SysML, EPO, PROV, EARL or SHACL element that realizes it" ; rdfs:domain skos:Concept ; rdfs:range xsd:string .
 ogc:scopeNote a owl:DatatypeProperty ; rdfs:label "scopeNote" ; rdfs:comment "the term's scope note: the rulings and the readings behind it" ; rdfs:domain skos:Concept ; rdfs:range xsd:string .
 ogc:coinedBy a owl:DatatypeProperty ; rdfs:label "coinedBy" ; rdfs:comment "who coined a coined term, and where" ; rdfs:domain skos:Concept ; rdfs:range xsd:string .
-ogc:term a owl:ObjectProperty ; rdfs:label "term" ; rdfs:comment "the glossary term (vocabulary/og-caie.ttl) an EPO class names (sheet 08): the inverse of the term's ogc:binding string, as a link the explorer can draw and `ogc term` can print" ; rdfs:domain owl:Class ; rdfs:range skos:Concept .
+ogc:term a owl:ObjectProperty ; rdfs:label "term" ; rdfs:comment "the glossary term (vocabulary/caie.ttl) an EPO class names (sheet 08): the inverse of the term's ogc:binding string, as a link the explorer can draw and `ogc term` can print" ; rdfs:domain owl:Class ; rdfs:range skos:Concept .
 ogc:concernsTerm a owl:ObjectProperty ; rdfs:label "concernsTerm" ; rdfs:comment "the term a concern is about" ; rdfs:domain ogc:Concern ; rdfs:range skos:Concept .
 ogc:usesTerm a owl:ObjectProperty ; rdfs:label "usesTerm" ; rdfs:comment "a term an essential is stated in" ; rdfs:domain ogc:Trace ; rdfs:range skos:Concept .
 ogc:tag a owl:DatatypeProperty ; rdfs:label "tag" ; rdfs:comment "an essential's tag: machine (checked by shapes) or human (validated by Z)" ; rdfs:domain ogc:Trace ; rdfs:range xsd:string .

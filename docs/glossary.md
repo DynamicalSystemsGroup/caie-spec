@@ -41,8 +41,8 @@ Constraint Language, in which every machine check on this site is written)
 and SKOS for the glossary itself. The other sources follow in ordinal
 ranks, which say whose definition wins when several define a term.
 
-Exactly four terms are coined, with their shorthands:
-{term}`Contextual AI Evaluation` (CAIE), {term}`OG-CAIE`,
+Exactly three terms are coined, with their shorthands:
+{term}`Contextual AI Evaluation` (CAIE),
 {term}`Evaluation Process Ontology` (EPO) and
 {term}`Domain-Specific Ontology` (DSO). Everything else is grounded in
 cited standards and literature. *Adopted* terms are used exactly as the

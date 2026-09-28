@@ -28,10 +28,10 @@ step() { # step <name> <expected-exit> <cmd...>
 
 uv run python scripts/render_version.py >> "$LOG" 2>&1  # the version line (sheet 10-38), written before anything reads it, never committed
 step "toolchain: pinned sysml v0.4.3, digest-verified" 0 bash toolchain/get-sysml.sh
-step "model: validate -strict (authoring view and model counterexamples)" 0 toolchain/bin/sysml model/og-caie.sysml counterexamples/model/unwired-port.sysml counterexamples/model/expert-administers-tests.sysml counterexamples/model/missing-accountable.sysml counterexamples/model/no-obligation.sysml -validate -strict
+step "model: validate -strict (authoring view and model counterexamples)" 0 toolchain/bin/sysml model/caie.sysml counterexamples/model/unwired-port.sysml counterexamples/model/expert-administers-tests.sysml counterexamples/model/missing-accountable.sysml counterexamples/model/no-obligation.sysml -validate -strict
 
 regen_model() {
-  uv run python scripts/prune_model.py && git diff --quiet -- model/og-caie.model.ttl model/model_manifest.json
+  uv run python scripts/prune_model.py && git diff --quiet -- model/caie.model.ttl model/model_manifest.json
 }
 step "model graph: convert, prune, byte-identical to the committed canonical graph" 0 regen_model
 step "ogc: doctor (labels unambiguous, quotes located, record consistent)" 0 uv run -q ogc doctor --no-cache

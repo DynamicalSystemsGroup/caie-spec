@@ -11,7 +11,7 @@ implementation pathway rather than a document-only one: the specification is
 meant to be run and checked, not only read.
 
 **The licence does not extend to the source materials.** Definitions quoted
-in `sources/digests/` and in `vocabulary/og-caie.ttl` remain their
+in `sources/digests/` and in `vocabulary/caie.ttl` remain their
 publishers' (ISO and IEC, IEEE, W3C, BIPM and the JCGM, the IAASB, INCOSE,
 the Stevens Institute of Technology for the SEBoK, and the publishers and
 authors of the cited papers) and are reproduced as short attributed

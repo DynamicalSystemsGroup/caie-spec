@@ -13,7 +13,7 @@ N = 13
 
 def union():
     return load("model/trace.ttl", "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl",
-                "vocabulary/og-caie.ttl", "sources/sources.ttl", "rulings/adjudications.ttl")
+                "vocabulary/caie.ttl", "sources/sources.ttl", "rulings/adjudications.ttl")
 
 
 def test_twelve_traces_resolve():

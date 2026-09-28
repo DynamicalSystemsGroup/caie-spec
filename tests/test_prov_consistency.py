@@ -52,7 +52,7 @@ def test_the_measles_record_is_consistent_with_prov_o_and_earl():
 
 
 def test_the_executed_record_is_consistent_with_prov_o_and_earl():
-    g = closure(executor.execute(load("model/og-caie.model.ttl")))
+    g = closure(executor.execute(load("model/caie.model.ttl")))
     assert instances_of_two_disjoint_classes(g) == []
 
 

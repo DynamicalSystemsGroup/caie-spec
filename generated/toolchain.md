@@ -24,9 +24,9 @@ Python `>=3.12` (`pyproject.toml`), pinned to `3.12` by `.python-version` so tha
 | Fetched from | `https://github.com/Open-MBEE/OpenSysML/releases/download/v0.4.3` | `toolchain/get-sysml.sh` (`VER=v0.4.3`) |
 | Invocation | `-convert ttl` | `model/model_manifest.json` |
 | Digest file | `toolchain/sysml-binaries.sha256`, sha256 `8efae36144923a29a21aa57d59286442db5ffaaa9a3773fafcc57616ade6f961` | `model/model_manifest.json` |
-| Authoring source | `model/og-caie.sysml`, sha256 `d0764a4ea026fc29c2b8f603216679e10be00d799f853bbff28cc539c2fff735` | `model/model_manifest.json` |
+| Authoring source | `model/caie.sysml`, sha256 `808f9bd99aa6df7dd3c09f06d7b88f17fbfb813747890cc1dd379623314b13c9` | `model/model_manifest.json` |
 | Term map | `model/sysml_term_map.csv`, 59 terms, sha256 `6a58361b86b4a4a0a94c077efdb23a9541da988fca8735f74a4b02c6e4dd270f` | `model/model_manifest.json` |
-| Canonical graph | `model/og-caie.model.ttl`, 5712 triples of 18976 converted (budget 6600, headroom 888), sha256 `deffb0f33dcd5d7e58de07b4a0b42f84e3ef92c9f132095b7166c4804c43e1e6` | `model/model_manifest.json` |
+| Canonical graph | `model/caie.model.ttl`, 5712 triples of 18976 converted (budget 6600, headroom 888), sha256 `856a872f24da3061ff7a0e60d0e8bd19ac53858824aeff927615fb27183b6704` | `model/model_manifest.json` |
 
 Per platform, the digest the installed binary must hash to (`toolchain/sysml-binaries.sha256`) and the digest the release tarball must hash to before it is unpacked (`toolchain/SHA256SUMS.pinned`); `toolchain/get-sysml.sh` checks both on every run.
 
@@ -39,7 +39,7 @@ Per platform, the digest the installed binary must hash to (`toolchain/sysml-bin
 
 ## The ontologies and vocabularies
 
-What the graphs are written in, counted over the committed Turtle files (`vocabulary/og-caie.ttl`, `vocabulary/epo.ttl`, `vocabulary/crosswalk.ttl`, `vocabulary/register.ttl`, `vocabulary/ogm.ttl`, `sources/sources.ttl`, `rulings/adjudications.ttl`, `model/trace.ttl`, `model/og-caie.model.ttl`, `track/measles-evaluation.ttl`, `shapes/epo.shapes.ttl`, `shapes/model.shapes.ttl`, `shapes/rulings.shapes.ttl`): the classes and properties of each vocabulary that the graphs actually use, and the subjects each names. The W3C vocabularies are adopted as published; the SysML namespace is OpenSysML's rendering of the OMG SysML v2 metamodel, not a vocabulary OMG publishes at that IRI; the specification's own namespaces resolve under w3id.org.
+What the graphs are written in, counted over the committed Turtle files (`vocabulary/caie.ttl`, `vocabulary/epo.ttl`, `vocabulary/crosswalk.ttl`, `vocabulary/register.ttl`, `vocabulary/ogm.ttl`, `sources/sources.ttl`, `rulings/adjudications.ttl`, `model/trace.ttl`, `model/caie.model.ttl`, `track/measles-evaluation.ttl`, `shapes/epo.shapes.ttl`, `shapes/model.shapes.ttl`, `shapes/rulings.shapes.ttl`): the classes and properties of each vocabulary that the graphs actually use, and the subjects each names. The W3C vocabularies are adopted as published; the SysML namespace is OpenSysML's rendering of the OMG SysML v2 metamodel, not a vocabulary OMG publishes at that IRI; the specification's own namespaces resolve under w3id.org.
 
 | Prefix | Namespace | Whose | What it does here | Classes used | Properties used | Subjects | Reference |
 |---|---|---|---|---|---|---|---|
@@ -55,9 +55,9 @@ What the graphs are written in, counted over the committed Turtle files (`vocabu
 | `elmt` | `urn:sysmlv2:element:` | OpenSysML | the converter's element identifiers, one per model element | 0 | 0 | 647 | <https://github.com/OpenMBEE/opensysml> |
 | `expr` | `urn:opensysml:expr:` | OpenSysML | the converter's expression identifiers (end paths, multiplicity bounds) | 0 | 0 | 491 | <https://github.com/OpenMBEE/opensysml> |
 | `ogc` | `https://w3id.org/og-caie/` | this specification | the register: citation classes and properties, shapes' names, concerns, rulings, crosswalk rows, trace essentials | 6 | 52 | 118 | <https://w3id.org/og-caie/> |
-| `term` | `https://w3id.org/og-caie/terms#` | this specification | the glossary's terms | 0 | 0 | 69 | <https://w3id.org/og-caie/> |
+| `term` | `https://w3id.org/og-caie/terms#` | this specification | the glossary's terms | 0 | 0 | 68 | <https://w3id.org/og-caie/> |
 | `src` | `https://w3id.org/og-caie/sources#` | this specification | the source register | 0 | 0 | 79 | <https://w3id.org/og-caie/> |
-| `rul` | `https://w3id.org/og-caie/rulings#` | this specification | concerns and rulings | 0 | 0 | 114 | <https://w3id.org/og-caie/> |
+| `rul` | `https://w3id.org/og-caie/rulings#` | this specification | concerns and rulings | 0 | 0 | 117 | <https://w3id.org/og-caie/> |
 | `epo` | `https://w3id.org/og-caie/epo#` | this specification | the Evaluation Process Ontology's handles: item classes, steps, layers, roles and their properties | 54 | 61 | 169 | <https://w3id.org/og-caie/> |
 | `xw` | `https://w3id.org/og-caie/crosswalk#` | this specification | the crosswalk rows of the front page's bridge into the standards | 0 | 0 | 7 | <https://w3id.org/og-caie/> |
 | `tr` | `https://w3id.org/og-caie/trace#` | this specification | the essentials SCI-01 to SCI-13 | 0 | 0 | 13 | <https://w3id.org/og-caie/> |
@@ -80,8 +80,8 @@ Appendix B runs in the browser on two libraries committed under `explorer/vendor
 | # | Step | Expected exit | Command |
 |---|---|---|---|
 | 1 | toolchain: pinned sysml v0.4.3, digest-verified | 0 | `bash toolchain/get-sysml.sh` |
-| 2 | model: validate -strict (authoring view and model counterexamples) | 0 | `toolchain/bin/sysml model/og-caie.sysml counterexamples/model/unwired-port.sysml counterexamples/model/expert-administers-tests.sysml counterexamples/model/missing-accountable.sysml counterexamples/model/no-obligation.sysml -validate -strict` |
-| 3 | model graph: convert, prune, byte-identical to the committed canonical graph | 0 | `uv run python scripts/prune_model.py && git diff --quiet -- model/og-caie.model.ttl model/model_manifest.json` |
+| 2 | model: validate -strict (authoring view and model counterexamples) | 0 | `toolchain/bin/sysml model/caie.sysml counterexamples/model/unwired-port.sysml counterexamples/model/expert-administers-tests.sysml counterexamples/model/missing-accountable.sysml counterexamples/model/no-obligation.sysml -validate -strict` |
+| 3 | model graph: convert, prune, byte-identical to the committed canonical graph | 0 | `uv run python scripts/prune_model.py && git diff --quiet -- model/caie.model.ttl model/model_manifest.json` |
 | 4 | ogc: doctor (labels unambiguous, quotes located, record consistent) | 0 | `uv run -q ogc doctor --no-cache` |
 | 5 | drift: the consistency loop, mechanical layer (appendix letters and counts, the mutation count, stale phrases, retired words, file mentions, sheet ticks, twins, absence rows, the CI condition on held-locally quotes) | 0 | `uv run python scripts/drift_check.py` |
 | 6 | notebooks: executed by nbclient, outputs equal the committed ones, verdict NOTEBOOK: PASS | 0 | `uv run python scripts/execute_notebooks.py --check` |

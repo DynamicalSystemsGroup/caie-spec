@@ -1,7 +1,7 @@
 [project]
 name = "og-caie-spec"
 version = "0.1.0"
-description = "Ontology-Grounded Contextual AI Evaluation (OG-CAIE) as an executable specification"
+description = "Contextual AI Evaluation (CAIE) as an executable specification"
 authors = [{ name = "Michael Zargham" }, { name = "Julie Hollek" }]  # co-authors
 license = { text = "CC-BY-SA-4.0" }
 readme = "README.md"

@@ -1,13 +1,13 @@
 # og-caie-spec
 
-**Ontology-Grounded Contextual AI Evaluation (OG-CAIE) as an executable
-specification.** Site: <https://dynamicalsystemsgroup.github.io/og-caie-spec/>
+**Contextual AI Evaluation (CAIE) as an executable specification.** Site:
+<https://dynamicalsystemsgroup.github.io/og-caie-spec/>
 
 The process Humane Intelligence and Dynamical Systems Group use to evaluate a
 deployed AI system against the needs of a specific domain, written down as:
 
 - a **glossary** whose every term cites one canonical definition (ISO 9000:2026,
-  SEVOCAB, NIST AI 700-2, W3C), with exactly four coined terms;
+  SEVOCAB, NIST AI 700-2, W3C), with exactly three coined terms;
 - a **SysML v2 model** (OpenSysML v0.4.3) of the contracting lifecycle with
   the Evaluation Process Ontology nested inside it, and of the human and
   machine assemblage that runs it: structure only, rendered to RDF as the
@@ -20,8 +20,8 @@ deployed AI system against the needs of a specific domain, written down as:
 
 ## Status (2026-09-07)
 
-- **Glossary: ratified.** 69 terms, 4 coined (DSO, EPO, CAIE, OG-CAIE),
-  settled through 51 rulings (R-01 to R-51) recorded verbatim in
+- **Glossary: ratified.** 69 terms, 3 coined (DSO, EPO, CAIE),
+  settled through 52 rulings (R-01 to R-52) recorded verbatim in
   `rulings/adjudications.ttl`. 94 quotes are machine-located in
   content-hashed snapshots or, where the source is held locally, in its
   committed digest, 56 verified by Z against the ISO screenshots or
@@ -62,7 +62,7 @@ deployed AI system against the needs of a specific domain, written down as:
   cited, rendered from the source register as BibTeX, with each chapter
   closing on the sources it cites (R-48).
 - **Model: revised (R-21 to R-38), draft.** SysML holds structure only; the
-  pruned RDF rendering `model/og-caie.model.ttl` is the canonical structure
+  pruned RDF rendering `model/caie.model.ttl` is the canonical structure
   (R-22), checked by wiring shapes M1 to M5 over kinds of parts and ports:
   four parties, three actor categories within the testing organization, the
   six-step EPO nested as the fulfil step of the contracting lifecycle (one

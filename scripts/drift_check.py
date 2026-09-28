@@ -87,7 +87,7 @@ def problems() -> list[str]:
                 out.append(f"mutation count: '{m.group(0)}' in {p.relative_to(ROOT)}; the executor has {len(MUTATIONS)}")
     # 2. forbidden phrases
     phrases = [l.strip() for l in (ROOT / "checks" / "drift-phrases.txt").read_text().splitlines() if l.strip() and not l.startswith("#")]
-    scan = PROSE_SOURCES + sorted((ROOT / "generated").glob("*.md")) + sorted((ROOT / "scripts").glob("*.py")) + sorted((ROOT / "ogc").glob("*.py")) + sorted((ROOT / "shapes").glob("*.ttl")) + sorted((ROOT / "queries").glob("*.rq")) + sorted((ROOT / "notebooks").glob("*.ipynb")) + [ROOT / "model" / "og-caie.sysml", ROOT / "model" / "trace.ttl"]
+    scan = PROSE_SOURCES + sorted((ROOT / "generated").glob("*.md")) + sorted((ROOT / "scripts").glob("*.py")) + sorted((ROOT / "ogc").glob("*.py")) + sorted((ROOT / "shapes").glob("*.ttl")) + sorted((ROOT / "queries").glob("*.rq")) + sorted((ROOT / "notebooks").glob("*.ipynb")) + [ROOT / "model" / "caie.sysml", ROOT / "model" / "trace.ttl"]
     for p in scan:
         rel = str(p.relative_to(ROOT))
         if any(rel.startswith(q) for q in QUOTING):
@@ -102,7 +102,7 @@ def problems() -> list[str]:
                 out.append(f"stale phrase '{ph}' in {rel}")
     # 3. retired words (the register's own list)
     g = Graph()
-    for f in ("vocabulary/og-caie.ttl", "vocabulary/epo.ttl", "rulings/adjudications.ttl", "model/trace.ttl", "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl"):
+    for f in ("vocabulary/caie.ttl", "vocabulary/epo.ttl", "rulings/adjudications.ttl", "model/trace.ttl", "shapes/epo.shapes.ttl", "shapes/model.shapes.ttl"):
         g.parse(ROOT / f)
     import sys as _sys0
     _sys0.path.insert(0, str(ROOT))

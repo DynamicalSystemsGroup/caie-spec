@@ -34,7 +34,7 @@ package ExpertAdministersTests {
     part def ProbeDeriver :> Machine { port probesOut : ProbeWrite; port probesToOperator : ProbeWrite; }
     part def Recorder :> Machine { port dsoIn : ~DsoWrite; port probeIn : ~ProbeWrite; port recordToExecutive : RecordWrite; }
     part def TestingOrganization :> Organization { part accountExecutive : AccountExecutive; part team : EvaluationTeam; part probeDeriver : ProbeDeriver; part recorder : Recorder; }
-    part def OgCaieEvaluation {
+    part def CaieEvaluation {
         interface dsoSeam : DsoSeam connect testingOrg.team.domainExpert.dsoOut to testingOrg.recorder.dsoIn;
         interface derivedProbeSeam : ProbeSeam connect testingOrg.probeDeriver.probesToOperator to testingOrg.team.operator.probesIn;
         interface probeRecordSeam : ProbeSeam connect testingOrg.probeDeriver.probesOut to testingOrg.recorder.probeIn;

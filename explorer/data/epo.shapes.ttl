@@ -18,7 +18,7 @@
 # Two preconditions on the data graph (sheets 10-31 and 10-33, R-50):
 #
 # 1. One default graph. The record, the EPO vocabulary (vocabulary/epo.ttl)
-#    and the model graph (model/og-caie.model.ttl) must sit together in one
+#    and the model graph (model/caie.model.ttl) must sit together in one
 #    default graph; the constraints join across them and a quad store with
 #    per-file named graphs answers nothing. The record is a prov:Bundle and
 #    every item and agent is a member of it (ogc:inRecord), so every

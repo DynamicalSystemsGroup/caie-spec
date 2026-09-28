@@ -19,8 +19,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from prune_model import OGM, SYS, SYSX, TRIPLE_BUDGET, build  # noqa: E402
 
 SYSML = ROOT / "toolchain" / "bin" / "sysml"
-MODEL = ROOT / "model" / "og-caie.sysml"
-GRAPH = ROOT / "model" / "og-caie.model.ttl"
+MODEL = ROOT / "model" / "caie.sysml"
+GRAPH = ROOT / "model" / "caie.model.ttl"
 MANIFEST = ROOT / "model" / "model_manifest.json"
 TERM_MAP = ROOT / "model" / "sysml_term_map.csv"
 SH = Namespace("http://www.w3.org/ns/shacl#")
@@ -45,7 +45,7 @@ def toolchain():
 
 @pytest.fixture(scope="module")
 def graph():
-    return load("model/og-caie.model.ttl")
+    return load("model/caie.model.ttl")
 
 
 @pytest.fixture(scope="module")
@@ -62,7 +62,7 @@ def test_model_and_counterexamples_validate_strictly():
 def test_model_graph_regenerates_byte_identically(tmp_path):
     out, manifest = tmp_path / "model.ttl", tmp_path / "manifest.json"
     build(MODEL, out, manifest)
-    assert out.read_bytes() == GRAPH.read_bytes(), "model/og-caie.model.ttl is stale: run scripts/prune_model.py"
+    assert out.read_bytes() == GRAPH.read_bytes(), "model/caie.model.ttl is stale: run scripts/prune_model.py"
     fresh, committed = json.loads(manifest.read_text()), json.loads(MANIFEST.read_text())
     fresh["artifact"]["path"] = committed["artifact"]["path"]
     assert fresh == committed, "model/model_manifest.json is stale"

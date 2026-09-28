@@ -1,6 +1,6 @@
 """Reusable views of the canonical model graph (ruling R-38).
 
-A view is a named perspective on model/og-caie.model.ttl: a title, what it
+A view is a named perspective on model/caie.model.ttl: a title, what it
 brings into focus, what it leaves out, and a renderer that reads only the
 graph. Diagrams are views for humans, so each keeps its density to the
 point it makes: wires between the same two parts in the same direction are
@@ -22,8 +22,8 @@ from rdflib import RDF, Graph, Namespace
 SYS = Namespace("https://www.omg.org/spec/SysML#")
 OGM = Namespace("https://w3id.org/og-caie/model#")
 SYSX_SOURCE_TEXT = Namespace("urn:opensysml:sysml:")["sourceText"]
-ASSEMBLY = "OgCaieEvaluation"
-TOP_PACKAGE = "OGCAIE"
+ASSEMBLY = "CaieEvaluation"
+TOP_PACKAGE = "CAIE"
 OUTER_PROCESS = "ContractingProcess"
 INNER_PROCESS = "EvaluationProcess"
 from functools import lru_cache
